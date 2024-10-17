@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listar Compromissos</title>
+</head>
+<body>
+    <h1>Compromissos</h1>
+    <ul>
+        {% for compromisso in compromissos %}
+            <li>{{ compromisso }}</li>
+        {% empty %}
+            <li>Nenhum compromisso agendado.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'criar_compromisso' %}">Criar Novo Compromisso</a>
+</body>
+</html>
