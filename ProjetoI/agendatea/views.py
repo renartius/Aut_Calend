@@ -4,10 +4,13 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from django.shortcuts import redirect
-from agendatea.forms import CompromissoForm
+from .forms import CompromissoForm
+from .models import Compromisso
+
 
 def home(request):
     return HttpResponse("Agenda TEA")
+
 
 def criar_compromisso(request):
     if request.method == 'POST':
@@ -18,6 +21,7 @@ def criar_compromisso(request):
     else:
         form = CompromissoForm()
     return render(request, 'compromissos/criar_compromisso.html', {'form': form})
+
 
 def listar_compromissos(request):
     compromissos = Compromisso.objects.all()
